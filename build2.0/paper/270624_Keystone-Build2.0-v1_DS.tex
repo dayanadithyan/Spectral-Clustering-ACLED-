@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\title{Eigenanalysis of ACLED Conflict data (LKA 2022-23)}
+\author{Dayan AS}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The eigenvalues of the Laplacian matrix provide valuable insights into the properties and structure of the underlying graph or network. In this work, we shall analyze the eigenvalues provided and discuss their implications.
+
+\section{Eigenvalue Analysis}
+The eigenvalues of the Laplacian matrix are given as:
+\[
+\lambda = \left[3.08148016\times 10^{-15}, 3.70010897\times 10^{-1}, 5.65513739\times 10^{-1}, 8.66349401\times 10^{-1}, 1.00000000, \dots, 6.10094509\times 10^{1}\right]
+\]
+
+\subsection{Near-zero Eigenvalue}
+The first eigenvalue, $3.08148016\times 10^{-15}$, is very close to zero. This indicates that the graph has a connected component, as the Laplacian matrix of a connected graph has a single zero eigenvalue.
+
+\subsection{Small Eigenvalues}
+The next few eigenvalues, $3.70010897\times 10^{-1}$, $5.65513739\times 10^{-1}$, and $8.66349401\times 10^{-1}$, are relatively small. These eigenvalues correspond to the slower modes of the graph, representing the global structure and low-frequency variations.
+
+\subsection{Unit Eigenvalues}
+The majority of the eigenvalues are equal to $1.0$, which is the maximum eigenvalue for a Laplacian matrix of a connected graph. This suggests that the graph has a simple structure, with most of the nodes being strongly connected.
+
+\subsection{Larger Eigenvalues}
+The remaining eigenvalues, ranging from $1.05677528$ to $6.10094509\times 10^{1}$, represent the higher-frequency variations and more complex structures within the graph. These larger eigenvalues indicate the presence of more intricate connectivity patterns and potentially the existence of distinct communities or subgraphs within the overall network.
+
+\end{document}
