@@ -1,28 +1,14 @@
+# docker-compose.yml
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - .:/src  # Changed to /src to match Dockerfile WORKDIR
+      - .:/app:ro  # Read-only mount for safety
     environment:
       - PYTHONDONTWRITEBYTECODE=1
       - PYTHONUNBUFFERED=1
-    # Uncomment and adjust the port if needed
-    # ports:
-    #   - "8080:8080"
-    # Command to run your application (adjust as needed)
-    command: poetry run python main.py 
-
-# Uncomment and add any additional services you might need (e.g., database)
-# db:
-#   image: postgres:13
-#   environment:
-#     - POSTGRES_DB=yourdbname
-#     - POSTGRES_USER=youruser
-#     - POSTGRES_PASSWORD=yourpassword
-#   volumes:
-#     - postgres_data:/var/lib/postgresql/data
-
-# volumes:
-#   postgres_data:
+      - DEBUG=1  # Remove in production
+    command: poetry run python main.py
+    restart: unless-stopped
